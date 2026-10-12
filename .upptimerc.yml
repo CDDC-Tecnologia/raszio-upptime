@@ -56,11 +56,12 @@ sites:
 status-website:
   cname: status.raszio.com
   name: Raszio Status
-  # Files in assets/ are served from the site root.
-  logoUrl: /logo.svg
-  favicon: /favicon-padding.png
-  faviconSvg: /favicon.svg
-  themeUrl: /raszio.css
+  # Files in assets/ are served from the site root. Use absolute URLs: root-relative
+  # paths get crawled during export and break the build (EISDIR on the asset copy).
+  logoUrl: https://status.raszio.com/logo.svg
+  favicon: https://status.raszio.com/favicon-padding.png
+  faviconSvg: https://status.raszio.com/favicon.svg
+  themeUrl: https://status.raszio.com/raszio.css
   introTitle: "**Raszio** service status"
   introMessage: Live status of Raszio hosting, website and e-mail services.
   navbar:
