@@ -1,0 +1,70 @@
+owner: CDDC-Tecnologia
+repo: raszio-upptime
+
+# No assignees: downtime issues are opened/closed without notifying anyone.
+# No notification secrets are configured, so no external alerts are sent.
+
+sites:
+  # --- Web ---
+  - name: Raszio Mail Admin
+    url: https://pvlmail1.raszio.com/web/login.html
+    __dangerous__body_down_if_text_missing: "form_login"
+  - name: Raszio Webmail
+    url: https://pvlmail1.raszio.com/roundcube/
+    __dangerous__body_down_if_text_missing: "rcmloginuser"
+  - name: Raszio Website
+    url: https://raszio.com
+
+  # --- Mail protocols (TCP connect) ---
+  # Port 25 is not checked: GitHub-hosted runners block outbound SMTP on 25.
+  - name: IMAP
+    check: "tcp-ping"
+    url: pvlmail1.raszio.com
+    port: 993
+  - name: POP3
+    check: "tcp-ping"
+    url: pvlmail1.raszio.com
+    port: 995
+  - name: SMTP
+    check: "tcp-ping"
+    url: pvlmail1.raszio.com
+    port: 465
+  - name: SMTP Submission
+    check: "tcp-ping"
+    url: pvlmail1.raszio.com
+    port: 587
+
+  # --- Servers ---
+  # GitHub-hosted runners cannot send ICMP, so "ping" is a TCP connect to 443.
+  - name: Server 1
+    check: "tcp-ping"
+    url: host1.raszio.com
+    port: 443
+  - name: Server 3
+    check: "tcp-ping"
+    url: host3.raszio.com
+    port: 443
+  - name: Server 4
+    check: "tcp-ping"
+    url: host4.raszio.com
+    port: 443
+  - name: Server 5
+    check: "tcp-ping"
+    url: host5.raszio.com
+    port: 443
+
+status-website:
+  cname: status.raszio.com
+  name: Raszio Status
+  # Files in assets/ are served from the site root.
+  logoUrl: /logo.svg
+  favicon: /favicon-padding.png
+  faviconSvg: /favicon.svg
+  themeUrl: /raszio.css
+  introTitle: "**Raszio** service status"
+  introMessage: Live status of Raszio hosting, website and e-mail services.
+  navbar:
+    - title: Status
+      href: /
+    - title: Raszio
+      href: https://raszio.com
