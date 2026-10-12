@@ -39,3 +39,8 @@ h2,
 h3 {
   color: #164855;
 }
+
+/* Hide the "powered by Upptime" footer; it holds nothing else. */
+footer {
+  display: none;
+}
