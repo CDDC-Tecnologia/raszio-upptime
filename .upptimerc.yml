@@ -55,7 +55,7 @@ sites:
 
 status-website:
   cname: status.raszio.com
-  name: Raszio Status
+  name: Status Page
   # Files in assets/ are served from the site root. Use absolute URLs: root-relative
   # paths get crawled during export and break the build (EISDIR on the asset copy).
   logoUrl: https://status.raszio.com/logo.svg
